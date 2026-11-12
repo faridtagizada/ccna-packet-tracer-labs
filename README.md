@@ -10,8 +10,8 @@ Small labs I put together to practice CCNA switching and routing topics in Cisco
 | --- | --- |
 | [Port-Security.pkt](Port-Security.pkt) | Port security, voice VLAN, DHCP and PAT |
 | [L3-Switch-VLAN-Connection.pkt](L3-Switch-VLAN-Connection.pkt) | VLANs routed by one Layer 3 switch (SVIs) |
-| [Legacy-Inter-VLAN-Routing.pkt](Legacy-Inter-VLAN-Routing.pkt) | Legacy inter-VLAN routing: one router port per VLAN |
-| [Router-on-a-Stick.pkt](Router-on-a-Stick.pkt) | Router-on-a-stick: one trunk, a subinterface per VLAN |
+| [Legacy.pkt](Legacy.pkt) | Legacy inter-VLAN routing: one router port per VLAN |
+| [ROAST.pkt](ROAST.pkt) | Router-on-a-stick (ROAS): one trunk, a subinterface per VLAN |
 | [Inter-VLAN-Routing.pkt](Inter-VLAN-Routing.pkt) | Inter-VLAN routing with a Layer 3 switch and access switches |
 | [DHCP-Practice-L2.pkt](DHCP-Practice-L2.pkt) | A router as DHCP server for two LANs |
 | [L3-DHCP-Server.pkt](L3-DHCP-Server.pkt) | A Layer 3 switch as DHCP server for three departments |
@@ -35,13 +35,13 @@ The three inter-VLAN labs (legacy, router-on-a-stick, Layer 3 switch) solve the 
 - **Configured:** VLAN 2 SMM, 3 HR and 4 IT, an SVI for each (192.168.2.1, 192.168.3.1, 192.168.4.1) and `ip routing`.
 - **Check:** `show vlan brief`, `show ip route`, then ping from one VLAN to another.
 
-### Legacy-Inter-VLAN-Routing.pkt
+### Legacy.pkt
 
 - **Devices:** R1 (1941), S1 and S2 (2960), ten PCs and an admin laptop.
 - **Configured:** VLAN 2, 3, 4 and 99. The router has one physical interface in VLAN 2 and one in VLAN 3. With two router ports only those two VLANs get a gateway, which is the reason this method was replaced by router-on-a-stick. SSH is set up on S1.
 - **Check:** `show ip interface brief` on R1, `show vlan brief` on S1.
 
-### Router-on-a-Stick.pkt
+### ROAST.pkt
 
 - **Devices:** R1 (1941), S1 and S2 (2960), ten PCs and an admin laptop.
 - **Configured:** the same VLANs, now all on one trunk to R1: subinterfaces Gi0/1.2, .3, .4 and .99 with `encapsulation dot1Q`. A second trunk joins the two switches.
